@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/akram/OneDrive/Desktop/Backup/Mac Backup/CLionProjects/ImageProcessing/Image.cpp
-iostream
--
-vector
--
-fstream
--
-Image.h
-C:/Users/akram/OneDrive/Desktop/Backup/Mac Backup/CLionProjects/ImageProcessing/Image.h
-
 C:/Users/akram/OneDrive/Desktop/Backup/Mac Backup/CLionProjects/ImageProcessing/Image.h
 iostream
 -
@@ -24,26 +14,14 @@ vector
 Pixel.h
 C:/Users/akram/OneDrive/Desktop/Backup/Mac Backup/CLionProjects/ImageProcessing/Pixel.h
 
-C:/Users/akram/OneDrive/Desktop/Backup/Mac Backup/CLionProjects/ImageProcessing/Pixel.cpp
-iostream
--
-stdio.h
--
-Pixel.h
-C:/Users/akram/OneDrive/Desktop/Backup/Mac Backup/CLionProjects/ImageProcessing/Pixel.h
-
 C:/Users/akram/OneDrive/Desktop/Backup/Mac Backup/CLionProjects/ImageProcessing/Pixel.h
 iostream
 -
-stdio.h
+cstdio
 -
 
 C:/Users/akram/OneDrive/Desktop/Backup/Mac Backup/CLionProjects/ImageProcessing/main.cpp
 iostream
--
-vector
--
-fstream
 -
 Image.h
 C:/Users/akram/OneDrive/Desktop/Backup/Mac Backup/CLionProjects/ImageProcessing/Image.h

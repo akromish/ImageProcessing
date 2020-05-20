@@ -2,12 +2,14 @@
 #include <fstream>
 #include "Image.h"
 
-Image::Image(string fileName) {
-    ifstream myfile(fileName,ios::in | ios::binary);
+Image::Image(std::string fileName) {
+
+    std::ifstream myfile(fileName,std::ios::in | std::ios::binary);
+
     try {
         myfile.seekg(12);
     }catch(...){
-        throw runtime_error("not open!");
+        throw std::runtime_error("not open!");
     }
 
     short w;
@@ -39,8 +41,6 @@ Image::Image(string fileName) {
 Image::Image() {
     height = 0;
     width = 0;
-
-
 }
 
 Image::Image(const Image *obj){
@@ -49,15 +49,18 @@ Image::Image(const Image *obj){
     width = obj->width;
 }
 
-void Image::writeImage(string filename) {
-    string inf = "../output/" + filename;
-    ofstream myfile(inf,ios::out | ios::binary);
+void Image::writeImage(std::string filename) {
+
+    std::string inf = "../output/" + filename;
+    std::ofstream myfile(inf,std::ios::out | std::ios::binary);
+
     unsigned char zero = 0;
     short zero2 = 0;
     unsigned char two = 2;
     unsigned char tf = 24;
     short widths = this->getWidth();
     short heights = this->getHeight();
+
     myfile.write((char*)&zero,1);
     myfile.write((char*)&zero,1);
     myfile.write((char*)&two,1);
@@ -72,7 +75,6 @@ void Image::writeImage(string filename) {
     myfile.write((char*)&zero,1);
 
     int totP = this->getHeight()*this->getWidth();
-
 
     for(int i = 0;i<totP;i++){
         unsigned char b = this->pixels[i].getBlue();
@@ -92,17 +94,19 @@ void Image::isSameImage(Image &a){
     int size = a.pixels.size();
     for(int i=0;i<size;i++){
         if(!this->pixels[i].comparePixels(a.pixels[i])){
-            cout << "Not the same image!! " <<"Different pixel @ " ;
-            cout << i << endl;
+            std::cout << "Not the same image!! " <<"Different pixel @ " ;
+            std::cout << i << std::endl;
             return;
         }
     }
-    cout << "Is the same Image! + 11pts";
-    cout << endl;
+    std::cout << "Is the same Image! + 11pts";
+
+    std::cout << std::endl;
 
 }
 
 Image Image::multiply(Image &a){
+
     Image temp = Image();
     if(a.getHeight()*a.getHeight() == this->getHeight()*this->getWidth()){
         int totP = a.getWidth()*a.getHeight();
@@ -132,6 +136,7 @@ Image Image::multiply(Image &a){
 }
 
 Image Image::subtract(Image &a) {
+
     Image temp = Image();
     if(a.getHeight()*a.getHeight() == this->getHeight()*this->getWidth()) {
         int totP = a.getWidth() * a.getHeight();
@@ -163,13 +168,13 @@ Image Image::subtract(Image &a) {
             Pixel tempP = Pixel(cR, cG, cB);
             temp.pixels.push_back(tempP);
         }
-
     }
     return temp;
 
 }
 
 Image Image::screen(Image &a) {
+
     Image temp = Image();
     if(a.getHeight()*a.getHeight() == this->getHeight()*this->getWidth()){
         int totP = a.getWidth()*a.getHeight();
@@ -199,6 +204,7 @@ Image Image::screen(Image &a) {
 }
 
 Image Image::overlay(Image &a) {
+
     Image temp = Image();
     if(a.getHeight()*a.getHeight() == this->getHeight()*this->getWidth()) {
         int totP = a.getWidth() * a.getHeight();
@@ -271,11 +277,10 @@ Image Image::overlay(Image &a) {
         }
     }
     return temp;
-
-
 }
 
 Image Image::add200Green() {
+
     Image temp = Image(this);
     int totP = width*height;
     for(int i =0; i<totP;i++){
@@ -292,6 +297,7 @@ Image Image::add200Green() {
 }
 
 Image Image::scaleRed4scaleBlue0() {
+
     Image temp = Image(this);
     int totP = height*width;
     for(int i = 0; i<totP;i++){
@@ -307,6 +313,7 @@ Image Image::scaleRed4scaleBlue0() {
 }
 
 void Image::splitRGB(Image &r, Image &g, Image &b) {
+
     Image tempR = Image(this);
     Image tempG = Image(this);
     Image tempB = Image(this);
@@ -331,10 +338,10 @@ void Image::splitRGB(Image &r, Image &g, Image &b) {
     }
     b = tempB;
 
-
 }
 
 Image Image::addGB(Image &g, Image &b) {
+
     Image &temp = *this;
     int totP = height*width;
     for(int i=0;i<totP;i++){
@@ -343,10 +350,10 @@ Image Image::addGB(Image &g, Image &b) {
     }
     return temp;
 
-
 }
 
 Image Image::Image180() {
+
     Image temp = Image();
     int totP = height * width;
     temp.setWidth(width);
@@ -360,6 +367,7 @@ Image Image::Image180() {
 }
 
 Image Image::merge4(Image &pattern,Image &car,Image &circle){
+
     Image temp = Image();
     temp.setHeight(1024);
     temp.setWidth(1024);
@@ -384,7 +392,6 @@ Image Image::merge4(Image &pattern,Image &car,Image &circle){
            }
        }
     }
-
     return temp;
 
 }

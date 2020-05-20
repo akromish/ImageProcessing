@@ -3,15 +3,13 @@
 #include <vector>
 #include "Pixel.h"
 
-using namespace std;
-
 
 class Image{
     int height;
     int width;
 
 public:
-    vector<Pixel> pixels;
+    std::vector<Pixel> pixels;
     void setHeight(int h){
         height = h;
     }
@@ -24,10 +22,10 @@ public:
     int getWidth(){
         return width;
     }
-    Image(string fileName);
+    Image(std::string fileName);
     Image();
     Image(const Image *obj);
-    void writeImage(string filename);
+    void writeImage(std::string filename);
     void isSameImage(Image &a);
     Image multiply(Image &a);
     Image subtract(Image &a);

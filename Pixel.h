@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
-#include <stdio.h>
-using namespace std;
+#include <cstdio>
+
 
 class Pixel{
     unsigned char red,green,blue;

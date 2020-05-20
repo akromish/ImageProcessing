@@ -1,10 +1,9 @@
 #include <iostream>
 #include "Image.h"
 
-
-
 int main() {
 
+    // storing all the input/example images
     Image car = Image("../input/car.tga");
     Image circles = Image("../input/circles.tga");
     Image layer_blue = Image("../input/layer_blue.tga");
@@ -28,295 +27,276 @@ int main() {
     Image epart8r = Image("../examples/EXAMPLE_part8_r.tga");
     Image epart9 = Image("../examples/EXAMPLE_part9.tga");
     Image epart10 = Image("../examples/EXAMPLE_part10.tga");
-    Image e_ec = Image("../examples/EXAMPLE_extraCredit.tga"); // storing all the input/example images
+    Image e_ec = Image("../examples/EXAMPLE_extraCredit.tga");
 
-
-   cout << "Make a selection of Task: 1-10 or hit 11 for EC task or hit 12 to test all  " << endl;
+   std::cout<< "Make a selection of Task: 1-10 or hit 11 for EC task or hit 12 to test all  " << std::endl;
    int userIn;
-   cin >> userIn;
+   std::cin >> userIn;
 
    if(userIn == 1){
        // Part 1:
 
-       cout << "Testing Task 1:" << endl;
+       std::cout<< "Testing Task 1:" << std::endl;
 
        Image c = layer1.multiply(pattern1);
        c.writeImage("part1.tga");
 
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" << std::endl;
        c.isSameImage(epart1);
 
-       cout << endl;
+       std::cout<< std::endl;
 
+   }else if(userIn == 2){
 
-
-   }
-   else if(userIn == 2){
        // Part 2:
-
-       cout << "Testing Task 2:" << endl;
+       std::cout<< "Testing Task 2:" << std::endl;
        Image g = layer2.subtract(car);
        g.writeImage("part2.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
 
        g.isSameImage(epart2);
-       cout << endl;
+       std::cout<<std::endl;
 
-   }
-   else if(userIn == 3){
+   }else if(userIn == 3){
+
        // Part 3:
-
-       cout << "Testing Task 3:" << endl;
+       std::cout<< "Testing Task 3:" <<std::endl;
        Image k = layer1.multiply(pattern2);
 
        Image m = text.screen(k);
        m.writeImage("part3.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
        epart3.isSameImage(m);
-       cout << endl;
+       std::cout<<std::endl;
 
 
-   }
-   else if(userIn == 4){
+   }else if(userIn == 4){
+
        // Part 4:
-       cout << "Testing Task 4:" << endl;
+       std::cout<< "Testing Task 4:" <<std::endl;
        Image o = layer2.multiply(circles);
        Image p = pattern2.subtract(o);
        p.writeImage("part4.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
        p.isSameImage(epart4);
-       cout << endl;
+       std::cout<<std::endl;
 
-   }
-   else if(userIn == 5){
+   }else if(userIn == 5){
+
        // Part 5:
-       cout << "Testing Task 5:" << endl;
+       std::cout<< "Testing Task 5:" <<std::endl;
        Image q = pattern1.overlay(layer1);
        q.writeImage("part5.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
 
        q.isSameImage(epart5);
-       cout << endl;
+       std::cout<<std::endl;
 
-   }
-   else if(userIn == 6){
+   }else if(userIn == 6){
 
        // Part 6:
-       cout << "Testing Task 6:" << endl;
+       std::cout<< "Testing Task 6:" <<std::endl;
        Image r = car.add200Green();
        r.writeImage("part6.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
 
        r.isSameImage(epart6);
-       cout << endl;
-   }
-   else if(userIn == 7){
+       std::cout<<std::endl;
+
+   }else if(userIn == 7){
 
        // Part 7:
-       cout << "Testing Task 7:" << endl;
+       std::cout<< "Testing Task 7:" <<std::endl;
        Image s = car.scaleRed4scaleBlue0();
        s.writeImage("part7.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
 
        s.isSameImage(epart7);
-       cout << endl;
+       std::cout<<std::endl;
 
+   }else if(userIn == 8){
 
-
-   }
-   else if(userIn == 8){
        // Part 8
-
        Image t,u,v;
        car.splitRGB(t,u,v);
 
        t.writeImage("part8_r.tga");
        u.writeImage("part8_g.tga");
        v.writeImage("part8_b.tga");
-       cout << "Testing Task 8r:" << endl;
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Testing Task 8r:" <<std::endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
        t.isSameImage(epart8r);
-       cout << endl;
+       std::cout<<std::endl;
 
-       cout << "Testing Task 8g:" << endl;
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Testing Task 8g:" <<std::endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
        u.isSameImage(epart8g);
-       cout << endl;
+       std::cout<<std::endl;
 
-
-       cout << "Testing Task 8b:" << endl;
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Testing Task 8b:" <<std::endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
        v.isSameImage(epart8b);
-       cout << endl;
-   }
-   else if(userIn == 9){
+       std::cout<<std::endl;
+
+   }else if(userIn == 9){
+
        // Part 9:
-       cout << "Testing Task 9:" << endl;
+       std::cout<< "Testing Task 9:" <<std::endl;
        Image w = layer_red.addGB(layer_green,layer_blue);
        w.writeImage("part9.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
 
        w.isSameImage(epart9);
-       cout << endl;
+       std::cout<<std::endl;
 
-   }
-   else if(userIn == 10){
-// Part 10:
-       cout << "Testing Task 10:" << endl;
+   }else if(userIn == 10){
+
+       // Part 10:
+       std::cout<< "Testing Task 10:" <<std::endl;
        Image x = text2.Image180();
        x.writeImage("part10.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
 
        x.isSameImage(epart10);
-       cout << endl;
+       std::cout<<std::endl;
 
-   }
-   else if(userIn == 11){
-// Part EC:
-       cout << "Testing EC Task:" << endl;
+   }else if(userIn == 11){
+
+       // Part EC:
+       std::cout<< "Testing EC Task:" <<std::endl;
 
        Image y = text.merge4(pattern1,car,circles);
        y.writeImage("ecPart.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
        y.isSameImage(e_ec);
 
-   }
-   else if(userIn == 12){
-       // Part 1:
+   }else if(userIn == 12){
 
-       cout << "Testing Task 1:" << endl;
+       // Part 1:
+       std::cout<< "Testing Task 1:" <<std::endl;
 
        Image c = layer1.multiply(pattern1);
        c.writeImage("part1.tga");
 
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
        c.isSameImage(epart1);
 
-       cout << endl;
-
+       std::cout<<std::endl;
 
 
        // Part 2:
-
-       cout << "Testing Task 2:" << endl;
+       std::cout<< "Testing Task 2:" <<std::endl;
        Image g = layer2.subtract(car);
        g.writeImage("part2.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
 
        g.isSameImage(epart2);
-       cout << endl;
+       std::cout<<std::endl;
 
 
        // Part 3:
-
-       cout << "Testing Task 3:" << endl;
+       std::cout<< "Testing Task 3:" <<std::endl;
        Image k = layer1.multiply(pattern2);
 
        Image m = text.screen(k);
        m.writeImage("part3.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
        epart3.isSameImage(m);
-       cout << endl;
+       std::cout<<std::endl;
 
 
        // Part 4:
-       cout << "Testing Task 4:" << endl;
+       std::cout<< "Testing Task 4:" <<std::endl;
        Image o = layer2.multiply(circles);
        Image p = pattern2.subtract(o);
        p.writeImage("part4.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
        p.isSameImage(epart4);
-       cout << endl;
+       std::cout<<std::endl;
 
 
        // Part 5:
-       cout << "Testing Task 5:" << endl;
+       std::cout<< "Testing Task 5:" <<std::endl;
        Image q = pattern1.overlay(layer1);
        q.writeImage("part5.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
 
        q.isSameImage(epart5);
-       cout << endl;
+       std::cout<<std::endl;
 
 
        // Part 6:
-       cout << "Testing Task 6:" << endl;
+       std::cout<< "Testing Task 6:" <<std::endl;
        Image r = car.add200Green();
        r.writeImage("part6.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
 
        r.isSameImage(epart6);
-       cout << endl;
+       std::cout<<std::endl;
 
 
        // Part 7:
-       cout << "Testing Task 7:" << endl;
+       std::cout<< "Testing Task 7:" <<std::endl;
        Image s = car.scaleRed4scaleBlue0();
        s.writeImage("part7.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
 
        s.isSameImage(epart7);
-       cout << endl;
+       std::cout<<std::endl;
+
 
        // Part 8
-
        Image t,u,v;
        car.splitRGB(t,u,v);
 
        t.writeImage("part8_r.tga");
        u.writeImage("part8_g.tga");
        v.writeImage("part8_b.tga");
-       cout << "Testing Task 8r:" << endl;
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Testing Task 8r:" <<std::endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
        t.isSameImage(epart8r);
-       cout << endl;
+       std::cout<<std::endl;
 
-       cout << "Testing Task 8g:" << endl;
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Testing Task 8g:" <<std::endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
        u.isSameImage(epart8g);
-       cout << endl;
+       std::cout<<std::endl;
 
-
-       cout << "Testing Task 8b:" << endl;
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Testing Task 8b:" <<std::endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
        v.isSameImage(epart8b);
-       cout << endl;
-
-
+       std::cout<<std::endl;
 
 
        // Part 9:
-       cout << "Testing Task 9:" << endl;
+       std::cout<< "Testing Task 9:" <<std::endl;
        Image w = layer_red.addGB(layer_green,layer_blue);
        w.writeImage("part9.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
 
        w.isSameImage(epart9);
-       cout << endl;
+       std::cout<<std::endl;
 
 
        // Part 10:
-       cout << "Testing Task 10:" << endl;
+       std::cout<< "Testing Task 10:" <<std::endl;
        Image x = text2.Image180();
        x.writeImage("part10.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
 
        x.isSameImage(epart10);
-       cout << endl;
+       std::cout<<std::endl;
 
 
-
-// Part EC:12
-       cout << "Testing EC Task:" << endl;
+       // Part EC:12
+       std::cout<< "Testing EC Task:" <<std::endl;
 
        Image y = text.merge4(pattern1,car,circles);
        y.writeImage("ecpart.tga");
-       cout << "Is this the same image as the example?" << endl;
+       std::cout<< "Is this the same image as the example?" <<std::endl;
        y.isSameImage(e_ec);
 
-
    }
-
     return 0;
 }
 
